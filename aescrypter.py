@@ -1,6 +1,5 @@
 from getpassword import getpass
 from Cryptodome.Random import get_random_bytes
-#from Cryptodome.Protocol.KDF import scrypt
 from Cryptodome.Cipher import AES
 import os
 import datetime
@@ -89,7 +88,9 @@ def encrypt_file(filepath) :
                     file_out.write(encrypted_data)
             tag = cipher.digest()
             file_out.write(tag)
-    except : print("Something went wrong :( ")
+    except : 
+        print("Something went wrong :( ")
+        exit()
     global status
     status = True
     print("file correctly encrypted")
@@ -128,7 +129,9 @@ def decrypt_file(filepath ) :
                 file_out.close()
                 os.remove(decrypted_filepath)
                 raise e
-    except : print("something went wrong during decryption !")
+    except : 
+        print("something went wrong during decryption !")
+        exit()
     global status
     status = True
     print("File correctly decrypted")
