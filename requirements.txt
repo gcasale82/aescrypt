@@ -1,0 +1,4 @@
+#sudo apt-get install build-essential python3-dev
+pycryptodomex
+cryptography
+
